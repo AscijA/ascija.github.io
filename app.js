@@ -46,15 +46,29 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 window.addEventListener('load', offsetScroll);
 
-// Theme toggle (Solarized light/dark)
-const toggle = document.getElementById('themeToggle');
+// Theme slider toggle JS
+const toggleInput = document.getElementById('themeToggle');
 const root = document.documentElement;
+
+
+function applyTheme(mode){
+root.setAttribute('data-theme', mode);
+localStorage.setItem('theme', mode);
+toggleInput.checked = mode === 'light';
+}
+
+
+// init
 const saved = localStorage.getItem('theme');
 if (saved === 'light' || saved === 'dark') {
-  root.setAttribute('data-theme', saved);
+applyTheme(saved);
+} else {
+const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+applyTheme(prefersLight ? 'light' : 'dark');
 }
-toggle?.addEventListener('click', () => {
-  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
+
+
+toggleInput?.addEventListener('change', () => {
+const next = toggleInput.checked ? 'light' : 'dark';
+applyTheme(next);
 });

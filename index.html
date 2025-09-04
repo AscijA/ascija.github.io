@@ -24,7 +24,7 @@
   <nav class="nav" aria-label="Main">
     <div class="container nav-inner">
       <div class="brand">
-        <div class="brand-badge" aria-hidden="true">Y</div>
+        <div class="brand-badge" aria-hidden="true">MA</div>
         <span>AscijA</span>
       </div>
       <div class="nav-actions">
@@ -32,7 +32,15 @@
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <button class="btn ghost" id="themeToggle" aria-label="Toggle theme">Toggle theme</button>
+        <!-- <button class="btn ghost" id="themeToggle" aria-label="Toggle theme">Toggle theme</button> -->
+
+        <label class="theme-switch">
+          <input type="checkbox" id="themeToggle" aria-label="Toggle theme" />
+          <span class="slider">
+            <img class="icon-sun" src="icons/moon.svg" alt="Light mode" />
+            <img class="icon-moon" src="icons/sun.svg" alt="Dark mode" />
+          </span>
+        </label>
         <a class="btn contact-btn" href="#contact" aria-label="Hire me">Hire me</a>
       </div>
     </div>
@@ -44,18 +52,20 @@
       <div class="container hero-wrap">
         <div>
           <h1 class="headline fade-in">Software Engineer</h1>
-          <p class="sub fade-in del-1">I craft fast, accessible <strong>websites</strong> and <strong>web applications</strong> and build
+          <p class="sub fade-in del-1">I craft fast, accessible <strong>websites</strong> and
+            <strong>web applications</strong> and build
             reliable <strong>Desktop</strong> and <strong>Android/iOS apps</strong> for startups and
-            small businesses. Based in Graz, working worldwide.</p>
+            small businesses. Based in Graz, working worldwide.
+          </p>
           <div class="fade-in del-2 actions">
             <a class="btn" href="#work">View Work</a>
             <a class="btn ghost" href="#" download>Download CV</a>
           </div>
-          <div class="stats fade-in del-3">
+          <!-- <div class="stats fade-in del-3">
             <div class="stat"><strong>3+ yrs</strong> experience</div>
             <div class="stat"><strong>25+</strong> projects</div>
             <div class="stat"><strong>100% </strong>on-time</div>
-          </div>
+          </div> -->
         </div>
         <div class="hero-card" aria-label="Key skills">
           <div class="chips">
@@ -78,21 +88,23 @@
       <div class="container">
         <div class="sec-h">
           <h2>Services</h2>
-          <p class="muted">Focused on websites & apps — no e‑commerce or SEO.</p>
         </div>
         <div class="grid grid-4">
           <article class="card">
-            <h3>Business Websites</h3>
-            <p>Responsive, fast, and accessible sites that present your brand clearly and convert
-              visitors.</p>
+            <div>
+              <h3>Business Websites</h3>
+              <p>Responsive, fast, and accessible sites that present your brand clearly and convert
+                visitors.</p>
+            </div>
             <div class="chips mt-10">
-              <span class="chip">WordPress</span><span class="chip">Static Sites</span><span
-                class="chip">Landing Pages</span>
+              <span class="chip">WordPress</span><span class="chip">Static Sites</span>
             </div>
           </article>
           <article class="card">
-            <h3>Mobile Apps</h3>
-            <p>Android/iOS apps with a clean UI and smooth performance. From prototype to publish.
+            <div>
+              <h3>Mobile Apps</h3>
+              <p>Android/iOS apps with a clean UI and smooth performance. From prototype to publish.
+            </div>
             </p>
             <div class="chips mt-10">
               <span class="chip">Android</span><span class="chip">iOS</span><span class="chip">React
@@ -100,17 +112,22 @@
             </div>
           </article>
           <article class="card">
-            <h3>Desktop Apps</h3>
-            <p>Cross-platform desktop apps with a clean UI and smooth performance. From prototype to
-              publish.</p>
+            <div>
+              <h3>Desktop Apps</h3>
+              <p>Cross-platform desktop apps with a clean UI and smooth performance. From prototype
+                to
+                publish.</p>
+            </div>
             <div class="chips mt-10">
               <span class="chip">Electron</span><span class="chip">Tauri</span><span
                 class="chip">C#</span>
             </div>
           </article>
           <article class="card">
-            <h3>API & Integrations</h3>
-            <p>REST, authentication, cloud backends and more.</p>
+            <div>
+              <h3>API & Integrations</h3>
+              <p>REST, authentication, cloud backends and more.</p>
+            </div>
             <div class="chips mt-10">
               <span class="chip">Node</span><span class="chip">Express</span><span
                 class="chip">.NET</span>
@@ -127,11 +144,12 @@
           <h2>Selected Work</h2>
 
         </div>
-        <div class="grid grid-4" id="projects">
+        <div class="grid grid-3" id="projects">
           <!-- Duplicate this block per project -->
           <article class="project" data-tags="website">
             <div class="thumb">Project Screenshot</div>
             <div class="project-body">
+
               <h3 class="project-title">Hermesist — Landing Page</h3>
               <p class="muted">A lightweight landing page with fast load and clear CTA.</p>
               <div class="tags"><span class="chip">Website</span><span class="chip">WordPress</span>
@@ -143,11 +161,11 @@
             </div>
           </article>
 
-          <article class="project" data-tags="android app">
-            <div class="thumb">Android App</div>
+          <article class="project" data-tags="website">
+            <div class="thumb">Personal Portfolio </div>
             <div class="project-body">
               <h3 class="project-title">Benjamin Brankovic — Portfolio</h3>
-              <p class="muted">Web portfolio showcasing projects and skills.</p>
+              <p class="muted">Web portfolio for civil engineer showcasing projects and skills.</p>
               <div class="tags"><span class="chip">Website</span>
                 <span class="chip">HTML</span>
                 <span class="chip">CSS</span>
@@ -161,29 +179,15 @@
             </div>
           </article>
 
-          <article class="project" data-tags="ios app">
-            <div class="thumb">Web App</div>
-            <div class="project-body">
-              <h3 class="project-title">Muhabet — Web App</h3>
-              <p class="muted">Chat application with real-time messaging and user authentication.
-              </p>
-              <div class="tags">
-                <span class="chip">React</span>
-                <span class="chip">JavaScript</span>
-                <span class="chip">Firebase</span>
-              </div>
-              <div class="project-actions">
-                <a class="btn" href="#" target="_blank" rel="noopener">App Store</a>
-                <a class="btn ghost" href="#" data-open-modal="#modal-3">Details</a>
-              </div>
-            </div>
-          </article>
-          <article class="project" data-tags="ios app">
+          <article class="project" data-tags="cross platform app">
             <div class="thumb">Desktop App</div>
             <div class="project-body">
               <h3 class="project-title">Muhabet — Cross Platform</h3>
-              <p class="muted">Cross-platform chat application with real-time messaging and user authentication.</p>
+              <p class="muted">Cross-platform chat application with real-time messaging and user
+                authentication.</p>
               <div class="tags">
+                <span class="chip">Web App</span>
+                <span class="chip">React</span>
                 <span class="chip">React Native</span>
                 <span class="chip">Electron</span>
               </div>
@@ -210,12 +214,20 @@
           <p>I’m <strong>Maid Ascic</strong>, a developer focused on building useful, delightful
             digital products. I work closely with founders and small teams to ship websites and
             mobile apps that feel fast and intuitive.</p>
-          <p class="muted">Stack highlights: React, TypeScript, Kotlin/Android, Swift/iOS,
-            Node/Express, Postgres, and Firebase/Supabase.</p>
+          <!-- <p class="muted">Stack highlights: React, JavaScript, C#, .NET,
+            Node/Express, Postgres, and Firebase.</p> -->
           <div class="chips mt-10">
-            <span class="chip">React</span><span class="chip">TypeScript</span><span
-              class="chip">Kotlin</span><span class="chip">Swift</span><span
-              class="chip">Node</span><span class="chip">Postgres</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">React</span>
+            <span class="chip">React Native</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">Electron</span>
+            <span class="chip">Node</span>
+            <span class="chip">Express</span>
+            <span class="chip">Firebase</span>
+            <span class="chip">Postgres</span>
+            <span class="chip">C#</span>
+            <span class="chip">.NET</span>
           </div>
         </div>
       </div>
@@ -240,13 +252,15 @@
             </div>
           </form>
           <div class="card">
-            <h3 style="margin-top:0;">Direct</h3>
-            <p class="muted">Prefer email? Reach me at <a
-                href="mailto:ascija111@gmail.com">ascija111@gmail.com</a></p>
-            <div class="contact-links">
-              <a class="btn ghost" href="mailto:ascija111@gmail.com">Email</a>
-              <a class="btn ghost" href="#" target="_blank" rel="noopener">LinkedIn</a>
-              <a class="btn ghost" href="#" target="_blank" rel="noopener">GitHub</a>
+            <div>
+              <h3 style="margin-top:0;">Direct</h3>
+              <p class="muted">Prefer email? Reach me at <a
+                  href="mailto:ascija111@gmail.com">ascija111@gmail.com</a></p>
+              <div class="contact-links">
+                <a class="btn ghost" href="mailto:ascija111@gmail.com">Email</a>
+                <a class="btn ghost" href="#" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="btn ghost" href="#" target="_blank" rel="noopener">GitHub</a>
+              </div>
             </div>
           </div>
         </div>
@@ -258,11 +272,7 @@
   <footer>
     <div class="container footer-grid">
       <div>© <span id="year"></span> AscijA. All rights reserved.</div>
-      <div class="chips">
-        <a class="chip" href="#about">About</a>
-        <a class="chip" href="#work">Work</a>
-        <a class="chip" href="#contact">Contact</a>
-      </div>
+
     </div>
   </footer>
 
