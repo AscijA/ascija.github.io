@@ -11,8 +11,8 @@ document.querySelectorAll('[data-open-modal]').forEach(btn => {
     if (dlg && dlg.showModal) dlg.showModal();
   });
 });
-document.querySelectorAll('dialog [data-close]').forEach(btn => {
-  btn.addEventListener('click', e => btn.closest('dialog').close());
+document.querySelectorAll('.dialog [data-close]').forEach(btn => {
+  btn.addEventListener('click', e => btn.closest('.dialog').close());
 });
 
 // Demo contact form (client-only)

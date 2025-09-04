@@ -604,3 +604,29 @@ footer {
   padding: 8px 12px;
   border-radius: 12px;
 }
+
+/* Hide dialogs unless [open] is present */
+.dialog {
+  display: none;
+  color: var(--text);
+}
+
+.dialog[open] {
+  display: block;
+}
+
+
+/* Optional: backdrop color for native modals */
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Basic card styling if you’re not using the native backdrop */
+.dialog.card {
+  max-height: fit-content;
+  max-width: 500px;
+}
+
+.dialog p {
+  margin: 10px 0;
+}
