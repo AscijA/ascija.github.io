@@ -65,11 +65,16 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
   color: var(--text);
   background:
-    radial-gradient(1200px 800px at 70% -10%, color-mix(in oklab, var(--brand) 20%, transparent), transparent 60%),
-    radial-gradient(1200px 800px at 30% -10%, color-mix(in oklab, var(--brand) 20%, transparent), transparent 60%),
-    radial-gradient(1200px 800px at 70% 110%, color-mix(in oklab, var(--brand) 20%, transparent), transparent 60%),
-    radial-gradient(1200px 800px at 30% 110%, color-mix(in oklab, var(--brand) 20%, transparent), transparent 60%),
-
+    radial-gradient(2400px 800px at 50% 0%,
+      rgb(from var(--brand) r g b / 0.20) 0%,
+      rgb(from var(--brand) r g b / 0.12) 35%,
+      rgb(from var(--brand) r g b / 0.06) 48%,
+      rgb(from var(--brand) r g b / 0) 60%),
+    radial-gradient(2400px 800px at 50% 100%,
+      rgb(from var(--brand) r g b / 0.20) 0%,
+      rgb(from var(--brand) r g b / 0.12) 35%,
+      rgb(from var(--brand) r g b / 0.06) 48%,
+      rgb(from var(--brand) r g b / 0) 60%),
     var(--bg);
   /* linear-gradient(135deg,
       color-mix(in oklab, var(--brand) 18%, var(--bg)) 0%,
