@@ -140,12 +140,12 @@ body {
   gap: 24px;
 }
 
-.grid-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 .grid-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-2 {
@@ -153,16 +153,112 @@ body {
 }
 
 @media (max-width: 900px) {
+
+  .grid-4,
   .grid-3 {
     grid-template-columns: 1fr 1fr;
   }
+
+  .carousel {
+    padding: 0;
+  }
+
+  .carousel .sec-h {
+    padding: 0 24px;
+    margin: 0;
+  }
+
+  .carousel .grid {
+    padding: 24px 21.5px 50px;
+  }
+
+  .carousel .grid .card {
+    height: 100%;
+  }
+
+  .section {
+    padding: 0;
+  }
+
+
 }
 
 @media (max-width: 640px) {
 
+  .grid-4,
   .grid-3,
   .grid-2 {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 640px) {
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .grid-3,
+  .grid-2 {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 0 5% 16px;
+  }
+
+  .grid-3>*,
+  .grid-2>* {
+    flex: 0 0 90%;
+    scroll-snap-align: center;
+    scroll-snap-stop: start;
+  }
+
+  .grid-3::-webkit-scrollbar,
+  .grid-2::-webkit-scrollbar {
+    display: none;
+  }
+
+  .grid-3,
+  .grid-2 {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+
+@media (max-width: 639px) {
+  .grid-4 {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 0 5% 16px;
+  }
+
+  .grid-4>* {
+    flex: 0 0 90%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .grid-4::-webkit-scrollbar {
+    display: none;
+  }
+
+  .grid-4 {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
@@ -228,6 +324,148 @@ body {
   gap: 12px;
 }
 
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 1px 1px);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-inner {
+    position: relative;
+  }
+
+  /* Hamburger button */
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    background: var(--bg-soft);
+    border: 1px solid color-mix(in oklab, var(--text) 18%, transparent);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+  }
+
+  .menu-toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--ring);
+  }
+
+  /* Three bars */
+  .burger {
+    display: inline-block;
+    width: 24px;
+    height: 18px;
+    position: relative;
+  }
+
+  .bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform .25s ease, opacity .2s ease, top .25s ease, bottom .25s ease;
+  }
+
+  .bar1 {
+    top: 0;
+    transform-origin: left center;
+  }
+
+  .bar2 {
+    top: 8px;
+  }
+
+  .bar3 {
+    bottom: 0;
+    transform-origin: left center;
+  }
+
+  .nav-menu {
+    text-align: center;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    background: var(--bg);
+    border-top: 1px solid color-mix(in oklab, var(--brand) 25%, transparent);
+    border-bottom: 1px solid color-mix(in oklab, var(--brand) 25%, transparent);
+    padding: 0 24px;
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition:
+      max-height .35s ease,
+      opacity .25s ease,
+      transform .35s ease,
+      padding-top .25s ease,
+      padding-bottom .25s ease;
+  }
+
+  .nav-menu.open {
+    max-height: 70vh;
+    opacity: 1;
+    transform: translateY(0);
+    padding-top: 16px;
+    padding-bottom: 20px;
+    pointer-events: auto;
+  }
+
+  .nav-menu a {
+    margin-left: 0;
+    font-size: 16px;
+    display: block;
+    padding: 10px 0;
+  }
+
+  .nav-menu .theme-switch {
+    align-self: flex-start;
+    margin: 8px 0;
+  }
+
+  .nav-menu .contact-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .menu-toggle[aria-expanded="true"] .bar1 {
+    top: 8px;
+    transform: rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] .bar2 {
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] .bar3 {
+    bottom: auto;
+    top: 8px;
+    transform: rotate(-45deg);
+  }
+}
+
 .contact-btn {
   line-height: 1;
 }
@@ -253,7 +491,6 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  /* background-color: var(--bg-soft); */
   border-radius: 34px;
   display: flex;
   align-items: center;
@@ -265,7 +502,6 @@ body {
 }
 
 .slider:hover {
-  /* border: var(--text) 1px solid; */
   opacity: 100%;
 }
 
@@ -474,6 +710,14 @@ body {
   .about {
     grid-template-columns: 1fr;
   }
+
+  #contact .container {
+    padding: 0;
+  }
+
+  #contact .container .sec-h {
+    padding: 24px 24px 0;
+  }
 }
 
 .avatar {
@@ -620,13 +864,10 @@ footer {
   display: block;
 }
 
-
-/* Optional: backdrop color for native modals */
 .dialog::backdrop {
   background: rgba(0, 0, 0, 0.45);
 }
 
-/* Basic card styling if you’re not using the native backdrop */
 .dialog.card {
   max-height: fit-content;
   max-width: 500px;

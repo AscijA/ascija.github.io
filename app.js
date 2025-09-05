@@ -51,24 +51,55 @@ const toggleInput = document.getElementById('themeToggle');
 const root = document.documentElement;
 
 
-function applyTheme(mode){
-root.setAttribute('data-theme', mode);
-localStorage.setItem('theme', mode);
-toggleInput.checked = mode === 'light';
+function applyTheme(mode) {
+  root.setAttribute('data-theme', mode);
+  localStorage.setItem('theme', mode);
+  toggleInput.checked = mode === 'light';
 }
 
 
 // init
 const saved = localStorage.getItem('theme');
 if (saved === 'light' || saved === 'dark') {
-applyTheme(saved);
+  applyTheme(saved);
 } else {
-const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-applyTheme(prefersLight ? 'light' : 'dark');
+  const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  applyTheme(prefersLight ? 'light' : 'dark');
 }
 
 
 toggleInput?.addEventListener('change', () => {
-const next = toggleInput.checked ? 'light' : 'dark';
-applyTheme(next);
+  const next = toggleInput.checked ? 'light' : 'dark';
+  applyTheme(next);
 });
+
+
+(function () {
+  const btn = document.getElementById('menuToggle');
+  const menu = document.getElementById('mainMenu');
+
+  function setOpen(isOpen) {
+    btn.setAttribute('aria-expanded', isOpen);
+    btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    menu.classList.toggle('open', isOpen);
+    menu.setAttribute('aria-hidden', !isOpen);
+    if (isOpen) document.addEventListener('keydown', onKeyDown);
+    else document.removeEventListener('keydown', onKeyDown);
+  }
+  function onKeyDown(e) { if (e.key === 'Escape') setOpen(false); }
+
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    setOpen(open);
+  });
+
+  menu.addEventListener('click', (e) => {
+    if (e.target.closest('a, .contact-btn')) setOpen(false);
+  });
+
+  const mq = window.matchMedia('(min-width: 769px)');
+  mq.addEventListener ? mq.addEventListener('change', handleMQ) : mq.addListener(handleMQ);
+  function handleMQ(e) {
+    if (e.matches) { setOpen(false); } 
+  }
+})();
