@@ -13,7 +13,9 @@
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#002b36" />
   <link rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%23026874'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-size='56' fill='white'%3EY%3C/text%3E%3C/svg%3E" />
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%23026874'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-size='48' font-weight='bold' fill='white'%3EMA%3C/text%3E%3C/svg%3E" />
+
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -83,8 +85,8 @@
             <span class="chip">Cloud</span>
 
           </div>
-          <p class="muted">Clean code, great UX, and measurable outcomes. I love shipping things
-            that users actually enjoy.</p>
+          <p class="muted">Clean code, great UX, enjoyable and responsive UI and measurable outcomes. I love shipping things
+            that users actually enjoy and find useful.</p>
         </div>
       </div>
     </section>
@@ -147,43 +149,40 @@
       <div class="container carousel">
         <div class="sec-h">
           <h2>Selected Work</h2>
-
         </div>
-        <div class="grid grid-3" id="projects">
-          <article class="project" data-tags="website">
-            <div class="thumb">Project Screenshot</div>
-            <div class="project-body">
 
-              <h3 class="project-title">Hermesist — Landing Page</h3>
-              <p class="muted">A lightweight landing page with fast load and clear CTA.</p>
-              <div class="tags"><span class="chip">Website</span><span class="chip">WordPress</span>
-              </div>
-              <div class="project-actions">
-                <a class="btn" href="#" target="_blank" rel="noopener">Preview</a>
-                <a class="btn ghost" href="#" data-open-modal="#modal-1">Details</a>
+        <div class="grid grid-3" id="projects">
+          <article class="project" data-tags="website" data-open-modal="#modal-1" role="button"
+            tabindex="0" aria-label="Open details for Hermesist — Business Website">
+            <div class="thumb"><img src="images/hermesist.png" alt="Hermesist — Business Website">
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Hermesist — Business Website</h3>
+              <p class="muted">A lightweight business website with fast load and clear CTA.</p>
+              <div class="tags">
+                <span class="chip">Website</span><span class="chip">WordPress</span>
               </div>
             </div>
           </article>
 
-          <article class="project" data-tags="website">
-            <div class="thumb">Personal Portfolio </div>
+          <article class="project" data-tags="website" data-open-modal="#modal-2" role="button"
+            tabindex="0" aria-label="Open details for Benjamin Brankovic — Portfolio">
+            <div class="thumb"><img src="images/benjamin.png" alt="Benjamin Brankovic — Portfolio">
+            </div>
             <div class="project-body">
               <h3 class="project-title">Benjamin Brankovic — Portfolio</h3>
               <p class="muted">Web portfolio for civil engineer showcasing projects and skills.</p>
-              <div class="tags"><span class="chip">Website</span>
+              <div class="tags">
+                <span class="chip">Website</span>
                 <span class="chip">HTML</span>
                 <span class="chip">CSS</span>
                 <span class="chip">JS</span>
-
-              </div>
-              <div class="project-actions">
-                <a class="btn" href="#" target="_blank" rel="noopener">Preview</a>
-                <a class="btn ghost" href="#" data-open-modal="#modal-2">Details</a>
               </div>
             </div>
           </article>
 
-          <article class="project" data-tags="cross platform app">
+          <article class="project" data-tags="cross platform app" data-open-modal="#modal-3"
+            role="button" tabindex="0" aria-label="Open details for Muhabet — Cross Platform">
             <div class="thumb">Desktop App</div>
             <div class="project-body">
               <h3 class="project-title">Muhabet — Cross Platform</h3>
@@ -195,15 +194,12 @@
                 <span class="chip">React Native</span>
                 <span class="chip">Electron</span>
               </div>
-              <div class="project-actions">
-                <a class="btn" href="#" target="_blank" rel="noopener">Preview</a>
-                <a class="btn ghost" href="#" data-open-modal="#modal-3">Details</a>
-              </div>
             </div>
           </article>
         </div>
       </div>
     </section>
+
 
     <section id="about" class="section">
       <div class="container about">
@@ -217,6 +213,19 @@
           <p>I’m <strong>Maid Ascic</strong>, a developer focused on building useful, delightful
             digital products. I work closely with founders and small teams to ship websites and
             mobile apps that feel fast and intuitive.</p>
+          <p>
+            With a strong background in <strong>C#, .NET and React</strong>,
+            I enjoy turning complex ideas into simple, elegant solutions. My work spans from
+            lightweight landing pages and portfolios to full-featured applications with
+            authentication, databases, and real-time functionality.
+          </p>
+          <p>
+            Beyond coding, I care deeply about <strong>user experience, accessibility, and
+              performance</strong>.
+            Every project I take on is guided by the goal of creating software that not only works,
+            but also feels great to use. I’m constantly learning new tools and techniques to keep
+            improving my craft and delivering value to clients.
+          </p>
           <div class="chips mt-10">
             <span class="chip">JavaScript</span>
             <span class="chip">React</span>
@@ -254,11 +263,13 @@
             <div>
               <h3 style="margin-top:0;">Direct</h3>
               <p class="muted">Prefer email? Reach me at <a
-                  href="mailto:ascija111@gmail.com">ascija111@gmail.com</a></p>
+                  href="mailto:maid.ascic@proton.me">maid.ascic@proton.me</a></p>
               <div class="contact-links">
-                <a class="btn ghost" href="mailto:ascija111@gmail.com">Email</a>
-                <a class="btn ghost" href="#" target="_blank" rel="noopener">LinkedIn</a>
-                <a class="btn ghost" href="#" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn ghost" href="mailto:maid.ascic@proton.me">Email</a>
+                <a class="btn ghost" href="https://www.linkedin.com/in/maid-ascic/" target="_blank"
+                  rel="noopener">LinkedIn</a>
+                <a class="btn ghost" href="https://github.com/AscijA" target="_blank"
+                  rel="noopener">GitHub</a>
               </div>
             </div>
           </div>

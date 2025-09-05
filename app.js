@@ -15,6 +15,18 @@ document.querySelectorAll('.dialog [data-close]').forEach(btn => {
   btn.addEventListener('click', e => btn.closest('.dialog').close());
 });
 
+document.querySelectorAll('article.project[data-open-modal]').forEach(card => {
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const id = card.getAttribute('data-open-modal');
+      const dlg = document.querySelector(id);
+      if (dlg && dlg.showModal) dlg.showModal();
+    }
+  });
+});
+
+
 // Demo contact form (client-only)
 const form = document.getElementById('contactForm');
 const statusEl = document.getElementById('formStatus');

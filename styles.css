@@ -356,10 +356,7 @@ body {
     width: 42px;
     height: 42px;
     cursor: pointer;
-    background: var(--bg-soft);
-    border: 1px solid color-mix(in oklab, var(--text) 18%, transparent);
-    border-radius: 10px;
-    box-shadow: var(--shadow);
+
   }
 
   .menu-toggle:focus-visible {
@@ -387,7 +384,7 @@ body {
 
   .bar1 {
     top: 0;
-    transform-origin: left center;
+    transform-origin: left right;
   }
 
   .bar2 {
@@ -396,7 +393,7 @@ body {
 
   .bar3 {
     bottom: 0;
-    transform-origin: left center;
+    transform-origin: left right;
   }
 
   .nav-menu {
@@ -428,8 +425,8 @@ body {
     max-height: 70vh;
     opacity: 1;
     transform: translateY(0);
-    padding-top: 16px;
-    padding-bottom: 20px;
+    /* padding-top: 16px; */
+    padding-bottom: 16px;
     pointer-events: auto;
   }
 
@@ -580,10 +577,15 @@ body {
   border-radius: var(--radius);
   padding: 18px;
   box-shadow: var(--shadow);
-  display: grid;
-  gap: 14px;
-  justify-items: center;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-card .chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 .stats {
@@ -665,12 +667,20 @@ body {
 .thumb {
   aspect-ratio: 16/10;
   width: 100%;
-  background: linear-gradient(135deg, color-mix(in oklab, var(--brand) 40%, transparent), color-mix(in oklab, var(--brand-2) 25%, transparent)), repeating-linear-gradient(90deg, color-mix(in oklab, var(--bg) 85%, black) 0 2px, var(--bg-soft) 2px 4px);
-  display: grid;
-  place-items: center;
-  color: var(--base2);
-  font-weight: 700;
-  letter-spacing: .3px;
+  overflow: hidden;
+  border-bottom: 1px solid color-mix(in oklab, var(--brand) 15%, transparent);
+  background: var(--bg-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: top;
 }
 
 .project-body {
@@ -711,6 +721,12 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .about .avatar {
+    justify-self: center;
+    width: 150px;
+    height: 150px;
+  }
+
   #contact .container {
     padding: 0;
   }
@@ -721,13 +737,14 @@ body {
 }
 
 .avatar {
-  width: 140px;
-  height: 140px;
+  width: 350px;
+  height: 350px;
   border-radius: 24px;
   background: conic-gradient(from 0deg, var(--brand), var(--brand-2));
   padding: 2px;
   box-shadow: var(--shadow);
 }
+
 
 .avatar>div {
   width: 100%;
@@ -773,13 +790,14 @@ textarea:focus {
   display: flex;
   gap: 10px;
   align-items: center;
+  justify-content: center;
 }
 
 .contact-links {
   display: flex;
   gap: 10px;
   margin-top: 10px;
-
+  justify-content: space-between;
 }
 
 .contact-links a:any-link {
@@ -875,4 +893,19 @@ footer {
 
 .dialog p {
   margin: 10px 0;
+}
+
+.project[role="button"] {
+  cursor: pointer;
+}
+
+.project[role="button"]:hover {
+  filter: brightness(1.03);
+  box-shadow: 0 12px 34px color-mix(in oklab, var(--blue) 20%, transparent);
+}
+
+.project[role="button"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--ring);
+  border-color: var(--ring);
 }
