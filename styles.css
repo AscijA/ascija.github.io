@@ -923,6 +923,12 @@ footer {
   margin: 10px 0;
 }
 
+@media (max-width: 768px) {
+  .dialog.card {
+    width: 90%;
+  }
+}
+
 .project[role="button"] {
   cursor: pointer;
 }
