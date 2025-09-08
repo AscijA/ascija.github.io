@@ -894,7 +894,21 @@ footer {
 
 .dialog[open] {
   display: block;
+  animation: dialogIn .22s ease-out;
 }
+
+@keyframes dialogIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 
 .dialog::backdrop {
   background: rgba(0, 0, 0, 0.45);
@@ -922,4 +936,44 @@ footer {
   outline: none;
   box-shadow: 0 0 0 4px var(--ring);
   border-color: var(--ring);
+}
+
+.reveal { --reveal-distance: 18px; }
+
+.reveal [data-reveal],
+.reveal > .container,
+.reveal > .container > *,
+.reveal .grid > *,
+.reveal .about > * {
+  will-change: opacity, transform;
+  transition: opacity .6s ease, transform .6s ease;
+  transform: translateZ(0); 
+}
+
+.reveal:not(.in) [data-reveal],
+.reveal:not(.in) > .container,
+.reveal:not(.in) > .container > *,
+.reveal:not(.in) .grid > *,
+.reveal:not(.in) .about > * {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+}
+
+.reveal.in [data-reveal],
+.reveal.in > .container,
+.reveal.in > .container > *,
+.reveal.in .grid > *,
+.reveal.in .about > * {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal.in .card,
+.reveal.in .project {
+  transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease;
+}
+.reveal.in .card:hover,
+.reveal.in .project:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px color-mix(in oklab, var(--blue) 18%, transparent);
 }

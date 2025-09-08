@@ -132,3 +132,46 @@ toggleInput?.addEventListener('change', () => {
     if (e.matches) { setOpen(false); } 
   }
 })();
+
+(function () {
+  const targets = document.querySelectorAll('section.section, [data-reveal]');
+  targets.forEach(el => el.classList.add('reveal'));
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const sec = entry.target;
+      sec.classList.add('in');
+
+      let items = [
+        ...sec.querySelectorAll('.sec-h, .hero-wrap > div, .grid > *, .card, .project')
+      ];
+
+      // Special handling: About section
+      const about = sec.querySelector('.about');
+      if (about) {
+        const cols = Array.from(about.children); // [avatar, content]
+        const right = cols[1];
+        const rightInner = right
+          ? Array.from(right.querySelectorAll('.sec-h, p, .chips > *'))
+          : [];
+
+        // Animate: left col → right col → inner right
+        items = [...cols, ...rightInner];
+      }
+
+      items.forEach((el, i) => {
+        const delay = Math.min(i * 80, 640);
+        el.style.transitionDelay = `${delay}ms`;
+      });
+
+      obs.unobserve(sec);
+    });
+  }, {
+    threshold: 0.14,
+    rootMargin: '0px 0px -20% 0px'
+  });
+
+  targets.forEach(sec => observer.observe(sec));
+})();
