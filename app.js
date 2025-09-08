@@ -26,7 +26,7 @@ document.querySelectorAll('article.project[data-open-modal]').forEach(card => {
   });
 });
 
-
+// Contact form
 const form = document.getElementById('contactForm');
 const statusEl = document.getElementById('formStatus');
 
@@ -103,6 +103,7 @@ toggleInput?.addEventListener('change', () => {
 });
 
 
+// Mobile menu toggle
 (function () {
   const btn = document.getElementById('menuToggle');
   const menu = document.getElementById('mainMenu');
@@ -133,6 +134,7 @@ toggleInput?.addEventListener('change', () => {
   }
 })();
 
+// Scroll reveal
 (function () {
   const targets = document.querySelectorAll('section.section, [data-reveal]');
   targets.forEach(el => el.classList.add('reveal'));
