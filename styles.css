@@ -225,7 +225,7 @@ body {
   .grid-2>* {
     flex: 0 0 90%;
     scroll-snap-align: center;
-    scroll-snap-stop: start;
+    scroll-snap-stop: always;
   }
 
   .grid-3::-webkit-scrollbar,
