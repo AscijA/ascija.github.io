@@ -1,6 +1,3 @@
-/* =========================
-   Solarized Design System
-   ========================= */
 :root {
   /* Base (Light) */
   --base03: #002b36;
@@ -141,6 +138,7 @@ body {
 
 .grid-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 .grid-3 {
@@ -160,6 +158,7 @@ body {
 
   .carousel {
     padding: 0;
+    height: 100%;
   }
 
   .carousel .sec-h {
@@ -173,10 +172,12 @@ body {
 
   .carousel .grid {
     padding: 24px 21.5px 50px;
+    height: 100%;
+
   }
 
   .carousel .grid .card {
-    height: 100%;
+    min-height: 250px;
   }
 
   .section {
@@ -184,6 +185,11 @@ body {
   }
 
 
+}
+@media (max-width: 320px) {
+  .carousel .grid .card {
+    min-height: 300px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -594,6 +600,16 @@ body {
   flex-wrap: wrap;
 }
 
+@media (max-width: 640px) {
+
+  .hero-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+  }
+}
+
 .actions .btn:first-child {
   margin-right: 16px;
 }
@@ -944,32 +960,34 @@ footer {
   border-color: var(--ring);
 }
 
-.reveal { --reveal-distance: 18px; }
+.reveal {
+  --reveal-distance: 18px;
+}
 
 .reveal [data-reveal],
-.reveal > .container,
-.reveal > .container > *,
-.reveal .grid > *,
-.reveal .about > * {
+.reveal>.container,
+.reveal>.container>*,
+.reveal .grid>*,
+.reveal .about>* {
   will-change: opacity, transform;
   transition: opacity .6s ease, transform .6s ease;
-  transform: translateZ(0); 
+  transform: translateZ(0);
 }
 
 .reveal:not(.in) [data-reveal],
-.reveal:not(.in) > .container,
-.reveal:not(.in) > .container > *,
-.reveal:not(.in) .grid > *,
-.reveal:not(.in) .about > * {
+.reveal:not(.in)>.container,
+.reveal:not(.in)>.container>*,
+.reveal:not(.in) .grid>*,
+.reveal:not(.in) .about>* {
   opacity: 0;
   transform: translateY(var(--reveal-distance));
 }
 
 .reveal.in [data-reveal],
-.reveal.in > .container,
-.reveal.in > .container > *,
-.reveal.in .grid > *,
-.reveal.in .about > * {
+.reveal.in>.container,
+.reveal.in>.container>*,
+.reveal.in .grid>*,
+.reveal.in .about>* {
   opacity: 1;
   transform: none;
 }
@@ -978,6 +996,7 @@ footer {
 .reveal.in .project {
   transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease;
 }
+
 .reveal.in .card:hover,
 .reveal.in .project:hover {
   transform: translateY(-2px);
