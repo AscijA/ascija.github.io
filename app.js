@@ -27,14 +27,31 @@ document.querySelectorAll('article.project[data-open-modal]').forEach(card => {
 });
 
 
-// Demo contact form (client-only)
 const form = document.getElementById('contactForm');
 const statusEl = document.getElementById('formStatus');
-form?.addEventListener('submit', (e) => {
+
+form?.addEventListener('submit', async (e) => {
   e.preventDefault();
-  statusEl.textContent = 'Sending… (demo)';
-  setTimeout(() => { statusEl.textContent = 'Thanks! I\'ll reply shortly.'; form.reset(); }, 900);
+  statusEl.textContent = 'Sending…';
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      statusEl.textContent = 'Thanks! I’ll reply shortly.';
+      form.reset();
+    } else {
+      statusEl.textContent = 'Oops, something went wrong.';
+    }
+  } catch (err) {
+    statusEl.textContent = 'Network error. Please try again later.';
+  }
 });
+
 
 // Simple hash scroll offset for sticky nav
 function offsetScroll() {
